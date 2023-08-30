@@ -36,7 +36,7 @@ pipeline{
 
 		stage('Build docker image'){
 		steps{
-		sh 'docker build -t 020399/firstjavaprogram:latest .'
+		sh 'docker build -t Manik_Images:latest .'
 		}
 		}
 	// 		stage('Push docker image'){
