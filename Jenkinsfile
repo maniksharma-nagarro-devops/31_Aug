@@ -33,5 +33,19 @@ pipeline{
 		        )
 		   }
 		}
+
+		stage('Build docker image'){
+		steps{
+		sh 'docker build -t 020399/firstjavaprogram:latest .'
+		}
+		}
+	// 		stage('Push docker image'){
+	// 	steps{
+	// 	withCredentials([string(credentialsId: 'docker', variable: 'dockercred')]) {
+	// 	sh "docker login -u 020399 -p ${dockercred}"
+	// 	}
+	// sh 'docker push 020399/firstjavaprogram:latest'
+	// 	}
+	// 	}
 	}
 }
