@@ -36,7 +36,7 @@ pipeline{
 
 		stage('Build docker image'){
 		steps{
-		sh 'docker build -t Manik_Images:latest .'
+		sh 'docker build -t manik_images:latest .'
 		}
 		}
 	// 		stage('Push docker image'){
