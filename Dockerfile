@@ -1,4 +1,5 @@
-FROM openjdk:11-jdk-slim
+# FROM openjdk:11-jdk-slim
+FROM openjdk:8-jre-alpine3.9
 WORKDIR /
 ADD /var/lib/jenkins/workspace/2nd_Pro/target/*.jar HelloWorld.jar
 EXPOSE 8080
