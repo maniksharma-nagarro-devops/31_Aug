@@ -37,14 +37,14 @@ pipeline{
 
 		stage('Build docker image'){
 		steps{
-		sh 'docker build -t manik_images:latest .'
+		sh 'docker build -t manik_images_dev:latest .'
 		}
 		}
 			stage('Run docker image'){
 		steps{
 		sh "chmod +x -R ${env.WORKSPACE}"
 		sh "./container_check.sh"
-		sh 'docker run --name prod -d manik_images:latest'
+		sh 'docker run --name dev -d manik_images:latest'
 		}
 		}
 	}
