@@ -10,14 +10,28 @@ pipeline{
 				}
 			}
 		}
-	    stage('sonar'){
-	        steps{
-	            withSonarQubeEnv('sonar'){
-	                sh "mvn sonar:sonar"
-	            
-	            
-	        }
-	        }
-	    }
+	  
+
+		stage('Deploy to artifactory'){
+		   steps{
+		      rtServer(
+		        id: "artifactory-server"
+		        )
+		        rtUpload(
+		            serverId: "artifactory-server",
+		            spec: '''{
+		                    "files":[
+		                    {
+		                        "pattern":"*.war",
+		                        "target":"assignment-3-libs-snapshot-local"
+		                     }
+		                             ]
+		            }'''
+		        )
+		        rtPublishBuildInfo(
+		        serverId: "artifactory-server"
+		        )
+		   }
+		}
 	}
 }
