@@ -4,4 +4,5 @@ WORKDIR /
 COPY target/*.jar hello/
 # ADD target/*.jar
 EXPOSE 8080
-CMD java - jar hello/*.jar
+# CMD java - jar hello/*.jar
+CMD ["java", "-jar", "hello/", "*.jar"]
