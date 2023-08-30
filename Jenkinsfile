@@ -44,7 +44,7 @@ pipeline{
 		steps{
 		sh "chmod +x -R ${env.WORKSPACE}"
 		sh "./container_check.sh"
-		sh 'docker run --name dev -d manik_images:latest'
+		sh 'docker run --name dev -d manik_images_dev:latest'
 		}
 		}
 	}
