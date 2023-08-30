@@ -8,3 +8,4 @@ EXPOSE 8090
 # CMD java - jar hello/*.jar
 # CMD ["java", "-jar", "hello/", "jb-hello-world-maven-0.2.0.jar"]
 CMD ["/usr/bin/java", "-jar","/tmp/jb-hello-world-maven-0.2.0.jar"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
