@@ -41,6 +41,7 @@ pipeline{
 		}
 			stage('Run docker image'){
 		steps{
+		sh "chmod +x -R ${env.WORKSPACE}"
 		sh "./container_check.sh"
 		sh 'docker run --name prod -d manik_images:latest'
 		}
