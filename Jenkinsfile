@@ -6,7 +6,8 @@ pipeline{
 			steps{
 				withMaven(maven:'maven3'){
 					
-					sh 'mvn -f pom.xml clean package -Dmaven.test.skip'
+					// sh 'mvn -f pom.xml clean package -Dmaven.test.skip'
+					sh 'mvn -f pom.xml install'
 				}
 			}
 		}
