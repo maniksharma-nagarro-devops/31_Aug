@@ -44,8 +44,8 @@ pipeline{
 		steps{
 		sh "chmod +x -R ${env.WORKSPACE}"
 		sh "./container_check.sh"
-		// sh 'docker run --name dev -p 8090:80 -d manik_images_dev:latest tail -f /dev/null'
-			sh 'docker run --name dev -p 8090:80 -d manik_images_dev:latest'
+		sh 'docker run --name dev -p 8090:80 -d manik_images_dev:latest tail -f /dev/null'
+			// sh 'docker run --name dev -p 8090:80 -d manik_images_dev:latest'
 		}
 		}
 	}
