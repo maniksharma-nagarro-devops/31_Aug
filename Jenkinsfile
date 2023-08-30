@@ -24,7 +24,7 @@ pipeline{
 		                    "files":[
 		                    {
 		                        "pattern":"*.jar",
-		                        "target":"assignment"
+		                        "target":"assignment_dev"
 		                     }
 		                             ]
 		            }'''
