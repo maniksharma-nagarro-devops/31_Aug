@@ -41,6 +41,7 @@ pipeline{
 		}
 			stage('Run docker image'){
 		steps{
+		sh 'docker rm prod'
 		sh 'docker run --name prod -d manik_images:latest'
 		}
 		}
