@@ -4,7 +4,7 @@ WORKDIR /tmp
 # COPY target/*.jar hello/
 COPY target/jb-hello-world-maven-0.2.0.jar /tmp/jb-hello-world-maven-0.2.0.jar
 # ADD target/*.jar
-ENV PORT 3333
+ENV PORT 8090
 
 # Run the web service on container startup.
 
