@@ -23,7 +23,7 @@ pipeline{
 		                    "files":[
 		                    {
 		                        "pattern":"*.war",
-		                        "target":"assignment-3-libs-snapshot-local"
+		                        "target":"assignment"
 		                     }
 		                             ]
 		            }'''
