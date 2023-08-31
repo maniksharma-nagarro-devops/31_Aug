@@ -46,7 +46,7 @@ pipeline {
 	    steps{
 			sh "chmod +x -R ${env.WORKSPACE}"
 			sh "./container_check.sh"
-			sh 'docker run --name prod -p 9090:8080 manik_images_prod:latest'
+			sh 'docker run --name prod -d -p 9090:8080 manik_images_prod:latest'
 			}
 		}
     }
