@@ -51,7 +51,7 @@ pipeline {
 
 	stage('Run docker image'){
 	    steps{
-			sh 'docker run --name dev -d -p 9090:8080 manik_images_prod:latest'
+			sh 'docker run --name dev -d -p 9080:8080 manik_images_prod:latest'
 			}
 		}
     }
