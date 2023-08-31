@@ -41,11 +41,16 @@ pipeline {
         }
 
  
-
-	stage('Run docker image'){
+	stage('Check and Delete Existing Container'){
 	    steps{
 			sh "chmod +x -R ${env.WORKSPACE}"
 			sh "./container_check.sh"
+			}
+		}
+
+
+	stage('Run docker image'){
+	    steps{
 			sh 'docker run --name prod -d -p 9090:8080 manik_images_prod:latest'
 			}
 		}
