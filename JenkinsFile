@@ -55,5 +55,11 @@ pipeline {
 			}
 		}
     }
-
+   post{
+        always{
+            mail to: "manik.sharma@nagarro.com",
+            subject: "Test Email",
+            body: "Test"
+        }
+    }
 }
