@@ -13,7 +13,7 @@ pipeline {
         }
 	stage('SonarQube Analysis'){
 		tools {
-                jdk "jdk-1.8-latest"
+                 "jdk-1.8-latest"
            	 }
 	        steps{
 	            withSonarQubeEnv('sonar'){
