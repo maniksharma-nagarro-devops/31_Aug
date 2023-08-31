@@ -16,22 +16,16 @@ pipeline {
 
 	stage('Deploy to artifactory'){
 		   steps{
-		      rtServer(
-		        id: "artifactory-server"
-		        )
 		        rtUpload(
 		            serverId: "artifactory-server",
 		            spec: '''{
 		                    "files":[
 		                    {
-		                        "pattern":"*.jar",
+		                        "pattern":"*.war",
 		                        "target":"assignment"
 		                     }
 		                             ]
 		            }'''
-		        )
-		        rtPublishBuildInfo(
-		        serverId: "artifactory-server"
 		        )
 		   }
 		}
