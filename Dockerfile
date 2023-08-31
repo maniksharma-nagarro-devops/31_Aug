@@ -6,7 +6,7 @@ FROM tomcat:7.0-alpine
 
 #giving the working directory
 
-WORKDIR /assignment .
+#WORKDIR /assignment .
 
  
 
