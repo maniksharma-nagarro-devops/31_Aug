@@ -54,12 +54,13 @@ pipeline {
 			sh 'docker run --name prod -d -p 9090:8080 manik_images_prod:latest'
 			}
 		}
-    }
-   post{
-        always{
-            mail to: "manik.sharma@nagarro.com",
-            subject: "Test Email",
-            body: "Test"
+	 post{
+     	   always{
+      	      mail to: "manik.sharma@nagarro.com",
+        	    subject: "Test Email",
+        	    body: "Test"
         }
     }
+    }
+  
 }
