@@ -18,10 +18,11 @@ pipeline {
         stage("Build the code"){
             steps{
                 sh "ls -a"
-
- 
-
-              sh 'mvn -f pom.xml install'
+				withMaven(maven:'maven3'){
+					
+					// sh 'mvn -f pom.xml clean package -Dmaven.test.skip'
+					sh 'mvn -f pom.xml install'
+				}
             }
 
         }
