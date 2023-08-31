@@ -12,6 +12,9 @@ pipeline {
             }
         }
 	stage('SonarQube Analysis'){
+		tools {
+                jdk "jdk-1.8-latest"
+           	 }
 	        steps{
 	            withSonarQubeEnv('sonar'){
 	                sh 'mvn sonar:sonar -Dsonar.projectKey=Manik_Project '
