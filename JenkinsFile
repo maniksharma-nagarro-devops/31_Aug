@@ -28,16 +28,16 @@ pipeline {
         }
 
 
-        // stage("SonarQube Analysis")
-        // {
-        //     steps
-        //     {
-        //         withSonarQubeEnv("SonarQube")
-        //         {
-        //             sh 'mvn -f Assignment/pom.xml clean install sonar:sonar -Dsonar.projectKey=Pipeline-jenkins -Dsonar.projectName=Mini-assignment'
-        //         }
-        //     }
-        // }
+      stage("SonarQube Analysis")
+        {
+            steps
+            {
+                withSonarQubeEnv("sonar")
+                {
+                    sh 'mvn clean install sonar:sonar -Dsonar.projectKey=Pipeline-jenkins -Dsonar.projectName=Manik_Project'
+                }
+            }
+        }
 
      
 
