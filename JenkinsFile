@@ -14,8 +14,8 @@ pipeline {
 	stage('SonarQube Analysis'){
 	        steps{
 	            withSonarQubeEnv('sonar'){
-	                sh 'mvn -f sonar:sonar -Dsonar.projectKey=Manik_Project -Dsonar.host.url=http://54.166.40.11:9000'
-	      //      sh 'mvn clean install sonar:sonar -Dsonar.projectKey=Pipeline-jenkins -Dsonar.projectName=assignemnt'
+	                sh 'mvn sonar:sonar -Dsonar.projectKey=Manik_Project '
+	      //      sh 'mvn clean install sonar:sonar -Dsonar.projectKey=Pipeline-jenkins -Dsonar.projectName=assignemnt' -Dsonar.host.url=http://54.166.40.11:9000
 
 	            
 	        }
