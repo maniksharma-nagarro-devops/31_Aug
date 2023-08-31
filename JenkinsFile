@@ -1,39 +1,46 @@
 pipeline {
     agent any
-    tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-        maven "maven2"
-    }
-    // parameters {
-    //     choice(name: 'ENVIRONMENT',
-    //     choices: ['DEVELOPMENT', 'PRODUCTION'],
-    //     description: 'Choose the Environment to Work On')
-    // }
-
- 
-
+    
+    
     stages {
-
-     
-        stage("Build the code"){
+	   
+        stage("Code Build Using Maven"){
             steps{
-                sh "ls -a"
-				withMaven(maven:'maven2'){
-					
-					// sh 'mvn -f pom.xml clean package -Dmaven.test.skip'
-					sh 'mvn -f pom.xml install'
-				}
+            		withMaven(maven:'maven2'){
+			sh 'mvn -f pom.xml install'
+		}
             }
-
         }
 
 
-     
-     
 
-       
+	stage('Deploy to artifactory'){
+		   steps{
+		      rtServer(
+		        id: "artifactory-server"
+		        )
+		        rtUpload(
+		            serverId: "artifactory-server",
+		            spec: '''{
+		                    "files":[
+		                    {
+		                        "pattern":"*.jar",
+		                        "target":"assignment"
+		                     }
+		                             ]
+		            }'''
+		        )
+		        rtPublishBuildInfo(
+		        serverId: "artifactory-server"
+		        )
+		   }
+		}
 
-        stage('create image for docker') {
+
+
+
+
+        stage('Creating Docker Images') {
             steps{
                 sh 'docker build -t manik_images_dev:latest .'
             }
@@ -41,12 +48,10 @@ pipeline {
 
  
 
-        	stage('Run docker image'){
-			steps{
-		//	sh "chmod +x -R ${env.WORKSPACE}"
-		//	sh "./container_check.sh"
-			// sh 'docker run --name dev -p 8090:80 -d manik_images_dev:latest tail -f /dev/null'
-			//	sh 'docker run --name dev -p 8090:80/tcp -d manik_images_dev:latest'
+	stage('Run docker image'){
+	    steps{
+			sh "chmod +x -R ${env.WORKSPACE}"
+			sh "./container_check.sh"
 			sh 'docker run --name dev -p 9090:8080 manik_images_dev:latest'
 			}
 		}
