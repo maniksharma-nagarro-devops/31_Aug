@@ -36,7 +36,7 @@ pipeline {
 
         stage('Creating Docker Images') {
             steps{
-                sh 'docker build -t manik_images_prod:latest .'
+                sh 'docker build -t manik_images_dev:latest .'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
 
 	stage('Run docker image'){
 	    steps{
-			sh 'docker run --name prod -d -p 9090:8080 manik_images_prod:latest'
+			sh 'docker run --name dev -d -p 9090:8080 manik_images_prod:latest'
 			}
 		}
     }
