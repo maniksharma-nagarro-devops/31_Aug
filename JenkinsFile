@@ -68,8 +68,8 @@ pipeline {
 	post{
      	   always{
       	      mail to: "manik.sharma@nagarro.com", 
-        	    subject: "Test Email",
-        	    body: "Pipeline has Completed Its  Run"
+        	    subject: "Jenkins Pipelines Run",
+        	    body: "Pipeline has Completed Its  Run in Dev"
         		}
     		}
 
