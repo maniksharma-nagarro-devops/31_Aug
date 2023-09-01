@@ -60,7 +60,7 @@ pipeline {
      	   always{
       	      mail to: "manik.sharma@nagarro.com", 
         	    subject: "Test Email",
-        	    body: "Test"
+        	    body: "Pipeline has Completed Its  Run"
         		}
     		}
   
