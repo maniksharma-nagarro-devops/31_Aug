@@ -60,7 +60,7 @@ pipeline {
      	   always{
       	      mail to: "manik.sharma@nagarro.com", 
         	    subject: "Jenkins Pipelines Run",
-        	    body: "Pipeline has Completed Its  Run in Prod"
+        	    body: "Pipeline has Completed Its  Run in Production Environment ${currentBuild.result}"
         		}
     		}
   
